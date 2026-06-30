@@ -19,19 +19,33 @@ export default function ContactPage() {
     message: "",
   });
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const handleChange = (
+  e: React.ChangeEvent<
+    HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+  >
+) => {
+  setForm({
+    ...form,
+    [e.target.name]: e.target.value,
+  });
+};
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = (
+  e: React.FormEvent<HTMLFormElement>
+) => {
+  e.preventDefault();
 
-    // For now just log (later you can connect backend / email API)
-    console.log("Form Submitted:", form);
+  console.log("Form Submitted:", form);
 
-    alert("Message sent successfully!");
-    setForm({ name: "", email: "", category: "General Inquiry", message: "" });
-  };
+  alert("Message sent successfully!");
+
+  setForm({
+    name: "",
+    email: "",
+    category: "General Inquiry",
+    message: "",
+  });
+};
 
   return (
     <main className="min-h-screen bg-[#020617] text-white pt-24">
@@ -90,7 +104,7 @@ export default function ContactPage() {
             <textarea
               name="message"
               placeholder="Your Message..."
-              rows="5"
+              rows={5}
               value={form.message}
               onChange={handleChange}
               className="w-full p-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500 outline-none"

@@ -24,7 +24,7 @@ export default function AiTutorPage() {
     "What is PID controller?",
   ];
 
-  const sendMessage = async (text) => {
+  const sendMessage = async (text: string) => {
     if (!text.trim()) return;
 
     const userMsg = { role: "user", text };
