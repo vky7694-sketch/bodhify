@@ -3,101 +3,129 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
+
+const links = [
+  { name: "Home", href: "/" },
+  { name: "Courses", href: "/courses" },
+  { name: "Virtual Labs", href: "/virtual-labs" },
+  { name: "AI Tutor", href: "/ai-tutor" },
+  { name: "Research", href: "/research" },
+  { name: "Contact", href: "/contact" },
+];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-[#07142b]/90 backdrop-blur-xl border-b border-white/10">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-5 h-20">
+    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-[#07142b]/80 border-b border-white/10">
+
+      <div className="max-w-7xl mx-auto h-20 px-6 flex items-center justify-between">
 
         {/* Logo */}
         <Link href="/">
-          <h1 className="text-3xl md:text-4xl font-black text-blue-500">
+          <h1 className="text-3xl font-black tracking-wider text-blue-500">
             BODHIFY
           </h1>
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden lg:flex gap-8 text-white">
-          <Link href="/">Home</Link>
-          <Link href="/courses">Courses</Link>
-          <Link href="/virtual-labs">Virtual Labs</Link>
-          <Link href="/ai-tutor">AI Tutor</Link>
-          <Link href="/research">Research</Link>
-          <Link href="/contact">Contact</Link>
+        <ul className="hidden lg:flex items-center gap-8">
+
+          {links.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className={`transition ${
+                  pathname === item.href
+                    ? "text-blue-400"
+                    : "text-white hover:text-blue-400"
+                }`}
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
+
         </ul>
 
         {/* Desktop Buttons */}
         <div className="hidden lg:flex gap-3">
+
           <Link href="/login">
-            <button className="px-5 py-2 border border-white/20 rounded-xl text-white">
+            <button className="px-5 py-2 rounded-xl border border-white/20 text-white hover:bg-white/10 transition">
               Login
             </button>
           </Link>
 
           <Link href="/dashboard">
-            <button className="px-5 py-2 bg-blue-600 rounded-xl text-white">
+            <button className="px-5 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition">
               Dashboard
             </button>
           </Link>
+
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Button */}
         <button
-          className="lg:hidden text-white"
           onClick={() => setOpen(!open)}
+          className="lg:hidden text-white"
         >
           {open ? <X size={30} /> : <Menu size={30} />}
         </button>
+
       </div>
 
-      {/* Mobile Drawer */}
-      {open && (
-        <div className="lg:hidden bg-[#07142b] border-t border-white/10">
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ y: -40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -40, opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="lg:hidden bg-[#07142b] border-t border-white/10"
+          >
+            <div className="flex flex-col p-6 space-y-5">
 
-          <div className="flex flex-col p-5 gap-5 text-white">
+              {links.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className={`text-lg ${
+                    pathname === item.href
+                      ? "text-blue-400"
+                      : "text-white"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
 
-            <Link href="/" onClick={() => setOpen(false)}>Home</Link>
+              <div className="border-t border-white/10 pt-5 space-y-3">
 
-            <Link href="/courses" onClick={() => setOpen(false)}>
-              Courses
-            </Link>
+                <Link href="/login">
+                  <button className="w-full py-3 rounded-xl border border-white/20 text-white hover:bg-white/10">
+                    Login
+                  </button>
+                </Link>
 
-            <Link href="/virtual-labs" onClick={() => setOpen(false)}>
-              Virtual Labs
-            </Link>
+                <Link href="/dashboard">
+                  <button className="w-full py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-700">
+                    Dashboard
+                  </button>
+                </Link>
 
-            <Link href="/ai-tutor" onClick={() => setOpen(false)}>
-              AI Tutor
-            </Link>
+              </div>
 
-            <Link href="/research" onClick={() => setOpen(false)}>
-              Research
-            </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-            <Link href="/contact" onClick={() => setOpen(false)}>
-              Contact
-            </Link>
-
-            <hr className="border-white/10"/>
-
-            <Link href="/login">
-              <button className="w-full py-3 border rounded-xl text-white">
-                Login
-              </button>
-            </Link>
-
-            <Link href="/dashboard">
-              <button className="w-full py-3 bg-blue-600 rounded-xl text-white">
-                Dashboard
-              </button>
-            </Link>
-
-          </div>
-
-        </div>
-      )}
     </nav>
   );
 }
