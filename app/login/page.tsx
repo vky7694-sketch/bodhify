@@ -124,7 +124,7 @@ export default function LoginPage() {
 
             {/* Google */}
 
-            <button className="w-full border border-white/20 hover:bg-white/10 rounded-xl py-4 flex justify-center items-center gap-3 transition">
+            <button className="w-full border border-white/20 hover:bg-white/10 rounded-xl py-4 flex justify-center items-center gap-3 transition text-white">
 
               <FcGoogle size={24} />
 
@@ -154,6 +154,6 @@ export default function LoginPage() {
       </main>
 
       <Footer />
-    </>
+    </>                   
   );
 }
