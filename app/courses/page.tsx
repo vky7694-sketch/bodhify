@@ -5,6 +5,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Link from "next/link";
 import {
+  Cpu,
+  Award,
   Brain,
   Bot,
   CircuitBoard,
@@ -122,6 +124,25 @@ export default function CoursesPage() {
       slug: "automobile-engineering",
       color: "from-cyan-500 to-blue-500",
     },
+    {
+      title: "Project Management Professional (PMP®)",
+      icon: <Award size={48} className="text-yellow-500" />,
+      description:
+        "PMI-aligned PMP® certification coaching exclusively for corporate professionals covering Project Management Frameworks, Agile, Hybrid approaches, Mock Tests, and Exam Preparation.",
+      lessons: "40+ Hours",
+      slug: "pmp-certification",
+      color: "from-yellow-500 to-orange-500",
+    },
+    {
+      title: "Project Management Professional (PMP®)",
+      icon: <Award size={48} className="text-amber-500" />,
+      description:
+        "Globally recognized PMP® certification training based on PMI standards. Designed for corporate professionals with real-world case studies, mock exams, and complete certification guidance.",
+      lessons: "40+ Hours",
+      slug: "project-management-professional",
+      color: "from-amber-500 via-orange-500 to-red-500",
+    },
+
   ];
 
   // ✅ FIXED SEARCH (title + description)

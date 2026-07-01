@@ -7,47 +7,60 @@ import {
   Cpu,
   BookOpen,
   Trophy,
+  Award,
 } from "lucide-react";
 
 export default function Features() {
-  const features = [
-    {
-      icon: <Box size={40} className="text-blue-400" />,
-      title: "3D Animated Learning",
-      description:
-        "Understand complex engineering concepts through immersive 3D animations and interactive visualizations.",
-    },
-    {
-      icon: <Brain size={40} className="text-blue-400" />,
-      title: "AI Personal Tutor",
-      description:
-        "Get instant explanations, solve doubts, and receive personalized learning support anytime.",
-    },
-    {
-      icon: <Cpu size={40} className="text-blue-400" />,
-      title: "Virtual Laboratories",
-      description:
-        "Perform engineering experiments virtually with real-time simulations and interactive models.",
-    },
-    {
-      icon: <BookOpen size={40} className="text-blue-400" />,
-      title: "Comprehensive Courses",
-      description:
-        "Access structured learning materials covering Mechanical, Electronics, AI, Robotics, Civil, and more.",
-    },
-    {
-      icon: <GraduationCap size={40} className="text-blue-400" />,
-      title: "GATE Preparation",
-      description:
-        "Master competitive exams with previous year questions, mock tests, and AI-powered solutions.",
-    },
-    {
-      icon: <Trophy size={40} className="text-blue-400" />,
-      title: "Skill Certification",
-      description:
-        "Earn certificates after completing courses and assessments to showcase your engineering skills.",
-    },
-  ];
+const features = [
+  {
+    icon: <Box size={40} className="text-blue-400" />,
+    title: "3D Animated Learning",
+    description:
+      "Understand complex engineering concepts through immersive 3D animations and interactive visualizations.",
+  },
+  {
+    icon: <Brain size={40} className="text-cyan-400" />,
+    title: "AI Personal Tutor",
+    description:
+      "Receive instant explanations, personalized guidance, and AI-powered doubt clarification anytime.",
+  },
+  {
+    icon: <Cpu size={40} className="text-green-400" />,
+    title: "Virtual Laboratories",
+    description:
+      "Perform engineering experiments virtually with interactive simulations and real-time feedback.",
+  },
+  {
+    icon: <BookOpen size={40} className="text-purple-400" />,
+    title: "Comprehensive Courses",
+    description:
+      "Access structured courses covering Mechanical, ECE, Electrical, Civil, AI, Robotics, IoT, and more.",
+  },
+  {
+    icon: <Award size={40} className="text-yellow-400" />,
+    title: "PMP® Certification",
+    description:
+      "PMI-aligned Project Management Professional (PMP®) certification coaching exclusively for corporate professionals with mock tests and certification guidance.",
+  },
+  {
+    icon: <GraduationCap size={40} className="text-pink-400" />,
+    title: "GATE Preparation",
+    description:
+      "Prepare for GATE with previous year questions, AI-powered solutions, concept videos, and mock examinations.",
+  },
+  {
+    icon: <Trophy size={40} className="text-orange-400" />,
+    title: "Skill Certifications",
+    description:
+      "Earn digital certificates after completing courses, assessments, and practical projects.",
+  },
+  {
+    icon: <Brain size={40} className="text-indigo-400" />,
+    title: "Research & Innovation",
+    description:
+      "Develop innovative engineering projects with AI-assisted research support, publications, and patent guidance.",
+  },
+];
 
   return (
     <section className="bg-[#020617] py-24">
