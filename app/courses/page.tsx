@@ -125,22 +125,49 @@ export default function CoursesPage() {
       color: "from-cyan-500 to-blue-500",
     },
     {
-      title: "Project Management Professional (PMP®)",
-      icon: <Award size={48} className="text-yellow-500" />,
+      title: "Drone Engineering",
+      icon: <Bot size={48} className="text-sky-400" />,
       description:
-        "PMI-aligned PMP® certification coaching exclusively for corporate professionals covering Project Management Frameworks, Agile, Hybrid approaches, Mock Tests, and Exam Preparation.",
-      lessons: "40+ Hours",
-      slug: "pmp-certification",
-      color: "from-yellow-500 to-orange-500",
+        "Design, control and programming of multirotor drones, sensors, flight controllers, and mission planning for aerial applications.",
+      lessons: "30+ Hours",
+      slug: "drone-engineering",
+      color: "from-sky-500 to-indigo-500",
     },
     {
-      title: "Project Management Professional (PMP®)",
-      icon: <Award size={48} className="text-amber-500" />,
+      title: "RC Plane Design & Flight",
+      icon: <Car size={48} className="text-cyan-400" />,
       description:
-        "Globally recognized PMP® certification training based on PMI standards. Designed for corporate professionals with real-world case studies, mock exams, and complete certification guidance.",
-      lessons: "40+ Hours",
-      slug: "project-management-professional",
-      color: "from-amber-500 via-orange-500 to-red-500",
+        "Radio-controlled fixed-wing aircraft design, aerodynamics, electronics integration, and practical flight training.",
+      lessons: "20+ Hours",
+      slug: "rc-plane-design",
+      color: "from-cyan-500 to-teal-500",
+    },
+    {
+      title: "Augmented Reality (AR)",
+      icon: <Cpu size={48} className="text-purple-400" />,
+      description:
+        "AR development fundamentals, spatial computing, marker/markerless tracking, and building interactive AR experiences.",
+      lessons: "25+ Hours",
+      slug: "augmented-reality",
+      color: "from-indigo-500 to-purple-500",
+    },
+    {
+      title: "Virtual Reality (VR)",
+      icon: <Brain size={48} className="text-pink-400" />,
+      description:
+        "VR systems, immersive UX design, performance optimization, and building interactive virtual environments.",
+      lessons: "30+ Hours",
+      slug: "virtual-reality",
+      color: "from-pink-500 to-rose-500",
+    },
+    {
+      title: "Internet of Things (IoT)",
+      icon: <CircuitBoard size={48} className="text-green-400" />,
+      description:
+        "End-to-end IoT development: sensors, embedded systems, connectivity, cloud integration, and data analytics.",
+      lessons: "35+ Hours",
+      slug: "iot",
+      color: "from-green-500 to-emerald-500",
     },
 
   ];

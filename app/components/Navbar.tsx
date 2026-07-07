@@ -5,10 +5,15 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { useAuth } from "../context/AuthContext";
+import { signOut } from "firebase/auth";
+import { auth } from "../lib/firebase";
+import { useRouter } from "next/navigation";
 
 const links = [
   { name: "Home", href: "/" },
   { name: "Courses", href: "/courses" },
+  { name: "Corporate courses", href: "/corporate-courses" },
   { name: "Virtual Labs", href: "/virtual-labs" },
   { name: "AI Tutor", href: "/ai-tutor" },
   { name: "Research", href: "/research" },
@@ -18,6 +23,17 @@ const links = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const { user } = useAuth();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      router.push("/");
+    } catch (err) {
+      console.error("Logout error", err);
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-[#07142b]/80 border-b border-white/10">
@@ -53,18 +69,33 @@ export default function Navbar() {
 
         {/* Desktop Buttons */}
         <div className="hidden lg:flex gap-3">
+          {user ? (
+            <>
+              <span className="text-white/90 px-3">{user.email}</span>
+              <button onClick={handleLogout} className="px-5 py-2 rounded-xl border border-white/20 text-white hover:bg-white/10 transition">
+                Logout
+              </button>
+              <Link href="/dashboard">
+                <button className="px-5 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition">
+                  Dashboard
+                </button>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link href="/login">
+                <button className="px-5 py-2 rounded-xl border border-white/20 text-white hover:bg-white/10 transition">
+                  Login
+                </button>
+              </Link>
 
-          <Link href="/login">
-            <button className="px-5 py-2 rounded-xl border border-white/20 text-white hover:bg-white/10 transition">
-              Login
-            </button>
-          </Link>
-
-          <Link href="/dashboard">
-            <button className="px-5 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition">
-              Dashboard
-            </button>
-          </Link>
+              <Link href="/dashboard">
+                <button className="px-5 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition">
+                  Dashboard
+                </button>
+              </Link>
+            </>
+          )}
 
         </div>
 
