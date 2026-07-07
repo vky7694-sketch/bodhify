@@ -29,7 +29,7 @@ export default function Hero() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-xl text-base leading-8 text-gray-400 sm:text-lg lg:mx-0">
-            India's next-generation engineering learning platform with immersive
+            India&apos;s next-generation engineering learning platform with immersive
             animations, AI-powered tutoring, virtual laboratories, research
             assistance, and GATE preparation.
           </p>
@@ -52,45 +52,63 @@ export default function Hero() {
 
         {/* RIGHT SIDE */}
         <div className="flex justify-center">
+          <div className="flex w-full max-w-[360px] flex-col gap-4 sm:max-w-[430px] lg:max-w-[500px]">
+            <div className="h-[220px] rounded-3xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-xl sm:h-[260px] lg:h-[300px]">
+              <div className="flex h-full flex-col items-center justify-center px-6 text-center">
+                <div className="text-5xl sm:text-6xl lg:text-7xl">🤖</div>
 
-          <div className="
-            w-full
-            max-w-[340px]
-            sm:max-w-[420px]
-            lg:max-w-[520px]
-            h-[340px]
-            sm:h-[420px]
-            lg:h-[520px]
-            rounded-3xl
-            border
-            border-white/10
-            bg-white/5
-            backdrop-blur-xl
-            shadow-2xl
-            flex
-            items-center
-            justify-center
-          ">
+                <h2 className="mt-4 text-xl font-bold text-white sm:text-2xl">
+                  AI Learning Assistant
+                </h2>
 
-            <div className="text-center px-6">
-
-              <div className="text-6xl sm:text-7xl lg:text-8xl">
-                🤖
+                <p className="mt-3 text-sm leading-6 text-gray-400 sm:text-base">
+                  Interactive 3D Robot, AI Tutor, Virtual Labs and smart learning
+                  experiences will appear here.
+                </p>
               </div>
-
-              <h2 className="mt-5 text-2xl font-bold text-white sm:text-3xl">
-                AI Learning Assistant
-              </h2>
-
-              <p className="mt-4 text-sm leading-7 text-gray-400 sm:text-base">
-                Interactive 3D Robot, AI Tutor, Virtual Labs and Smart Learning
-                experience will appear here.
-              </p>
-
             </div>
 
-          </div>
+            <div className="overflow-hidden rounded-3xl border border-white/10 bg-slate-900/80 shadow-2xl backdrop-blur-xl">
+              <div className="border-b border-white/10 px-4 py-3">
+                <p className="text-sm font-semibold uppercase tracking-[3px] text-cyan-400">
+                  Latest Job Updates
+                </p>
+              </div>
 
+              <div className="relative h-40 overflow-hidden">
+                <div className="animate-[scrollUp_16s_linear_infinite]">
+                  {[1, 2].flatMap((repeat) =>
+                    [
+                      {
+                        role: "Software Engineer",
+                        company: "Google India",
+                        type: "Full-time • Hybrid",
+                      },
+                      {
+                        role: "Data Analyst",
+                        company: "Microsoft",
+                        type: "Remote • 2 days ago",
+                      },
+                      {
+                        role: "Product Designer",
+                        company: "Infosys",
+                        type: "On-site • New",
+                      },
+                    ].map((job, index) => (
+                      <div
+                        key={`${repeat}-${index}`}
+                        className="border-b border-white/10 px-4 py-3 last:border-b-0"
+                      >
+                        <p className="text-sm font-semibold text-white">{job.role}</p>
+                        <p className="mt-1 text-sm text-gray-400">{job.company}</p>
+                        <p className="mt-1 text-xs text-cyan-400">{job.type}</p>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
